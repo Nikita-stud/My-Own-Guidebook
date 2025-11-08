@@ -8,10 +8,11 @@ word[0] = 'h'; // No effect
 // Strings even have the length property
 console.log(word.length); // 5
 
-//split into array of characters
+//split into array of characters or words
 let word = 'Hello';
 const letters = word.split('');
 console.log(letters); // ['H', 'e', 'l', 'l', 'o']
+const words = word.split(' '); //SPACEEEE in between
 
 let joined = letters.join('');
 console.log(joined); // 'Hello'

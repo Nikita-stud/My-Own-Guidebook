@@ -3,11 +3,21 @@ res.json(); //Usually automatically returns 200 OK
 res.status(404); //lets you set status to 404
 res.status(404).json({ error: 'Product not found' }); //To add a message to the 404
 
+200; //OK - Successful GET, PUT, PATCH
+201; //Created - Successful POST
+204; //No Content - Successful DELETE
+
 400; //Bad Request - Invalid request data
 401; //Unauthorised - Not logged in
 403; //Forbidden - Logged in but not allowed
 404; //Not Found - Resource does not exist
 500; //Internal Server Error - Something went wrong on the server
+
+GET; //	/users or /users/2	200 OK
+POST; //	Add new data	/users	201 Created
+PUT; // Replace	fields	/users/2	200 OK
+PATCH; // Update fields	/users/2	200 OK
+DELETE; //Remove item	/users/2	204 No Content
 
 if (!product) {
   return res.status(404).json({ error: 'Product not found' });

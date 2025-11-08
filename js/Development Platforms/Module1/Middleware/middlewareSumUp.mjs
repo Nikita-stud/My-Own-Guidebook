@@ -1,19 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
-
-// In-memory storage
-const users: User[] = [
-  { id: 1672531200000, name: 'John Doe', email: 'john@example.com' },
-  { id: 1672531260000, name: 'Jane Smith', email: 'jane@example.com' },
-];
-
 //gives access to the variables in .env
 dotenv.config();
 
@@ -50,6 +37,7 @@ app.use((req, res, next) => {
   next();
 });
 
+//This is all authorization for now! Get authorization in header
 function checkAuth(req: Request, res: Response, next: NextFunction) {
   const auth = req.headers.authorization;
   if (!auth) {
@@ -67,11 +55,6 @@ app.get('/', (req, res) => {
     message: 'Public page',
     body: `Request #${count} - ${req.method} ${req.originalUrl}`,
   });
-});
-
-//Display users when endpoint is called
-app.get('/users', (req: Request, res: Response) => {
-  res.json(users);
 });
 
 //If correct token then
