@@ -1,17 +1,20 @@
 import express, { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import { error } from 'console';
 
-interface User {
-  id: number;
-  name: string;
-  email: string;
+interface Book {
+  id?: number;
+  title: string;
+  author: string;
+  year?: number;
 }
 
 // In-memory storage
-const users: User[] = [
-  { id: 1672531200000, name: 'John Doe', email: 'john@example.com' },
-  { id: 1672531260000, name: 'Jane Smith', email: 'jane@example.com' },
+const books: Book[] = [
+  { id: 1672531200000, title: 'John Doe', author: 'john@example.com' },
+  { id: 1672531200200, title: 'Lol Doe', author: 'lol@example.com' },
+  { id: 1672531260000, title: 'Jane Smith', author: 'jane@example.com' },
 ];
 
 //gives access to the variables in .env
@@ -30,73 +33,124 @@ app.use(cors({ origin: `http://127.0.0.1:5500` }));
 //Back end server
 const PORT = process.env.PORT || 3000;
 
-let count = 0;
-
-app.use((req: Request, res: Response, next: NextFunction) => {
-  count += 1;
-  res.setHeader('X-Request-Count', count.toString());
-  next();
-});
-
-//Time for request
-app.use((req, res, next) => {
-  const time = Date.now();
+app.use('/', (req, res, next) => {
+  const date = Date.now();
   res.on('finish', () => {
-    const totalTime = Date.now() - time;
+    const totalTime = Date.now() - date;
     console.log(
-      `Total Time in milliseconds ${totalTime} for ${req.method} ${req.originalUrl}`
+      `Total time in mls ${totalTime} for ${req.method}${req.originalUrl}`
     );
   });
   next();
 });
-
 function checkAuth(req: Request, res: Response, next: NextFunction) {
-  const auth = req.headers.authorization;
+  const auth = req.headers.authentication;
   if (!auth) {
     return res.status(401).json({ error: 'No header' });
   }
   if (auth !== 'Bearer letmein') {
-    return res.status(403).json({ error: 'Access denied' });
+    return res.status(403).json({ error: 'Unauthorized' });
   }
   next();
 }
 
-app.get('/', (req, res) => {
-  //response will have a header name "X etc" with amount
-  res.json({
-    message: 'Public page',
-    body: `Request #${count} - ${req.method} ${req.originalUrl}`,
-  });
+app.get('/books', (req, res) => {
+  res.json(books);
 });
 
-//Display users when endpoint is called
-app.get('/users', (req: Request, res: Response) => {
-  res.json(users);
+app.get('/books/:id', (req, res) => {
+  const { id } = req.params;
+  const number = Number(id);
+  const filtered = books.find((book) => book.id === number);
+  if (!filtered) {
+    res.status(400).json({ error: 'no item found' });
+  }
+  res.json(filtered);
 });
 
-//If correct token then
-app.get('/protected', checkAuth, (req, res) => {
-  res.json({ message: `Protected page` });
+app.post('/books', checkAuth, (req, res) => {
+  const { title, author } = req.body;
+  if (!title || !author) {
+    res.status(404).json({ error: 'author and title required' });
+  }
+  const newId = Date.now();
+  const newUser: Book = { id: newId, title, author };
+  books.push(newUser);
+
+  res.status(201).json(newUser);
 });
 
-//If correct token
-app.get('/admin', checkAuth, (req, res) => {
-  res.json({ message: `Admin dashboard` });
+app.put('/books/:id', checkAuth, (req, res) => {
+  const { id } = req.params;
+  const number = Number(id);
+
+  if (isNaN(number)) {
+    res.status(400).json({ error: 'Invalid ID user' });
+  }
+
+  const { title, author } = req.body;
+  if (!title || !author) {
+    res.status(404).json({ error: 'author and title required' });
+  }
+
+  const userIndex = books.findIndex((user) => user.id === number);
+  if (userIndex === -1) {
+    res.status(404).json({ error: 'No such item found' });
+  }
+
+  books[userIndex] = { id: userIndex, title, author };
+  res.json(books[userIndex]);
 });
-//Wrong url
+
+app.patch('/books/:id', checkAuth, (req, res) => {
+  const { id } = req.params;
+  const number = Number(id);
+  if (isNaN(number)) {
+    res.status(400).json({ error: 'Invalid ID user' });
+  }
+
+  const updates = req.body;
+  if (!updates.title && !updates.author) {
+    return res.status(404).json({ error: 'author and title required' });
+  }
+
+  const userIndex = books.findIndex((user) => user.id === number);
+  if (userIndex === -1) {
+    return res.status(404).json({ error: 'No such item found' });
+  }
+
+  books[userIndex] = { ...books[userIndex], ...updates };
+  res.json(books[userIndex]);
+});
+
+app.delete('/books/:id', checkAuth, (req, res) => {
+  const { id } = req.params;
+  const number = Number(id);
+  if (isNaN(number)) {
+    return res.status(400).json({ error: 'Invalid ID user' });
+  }
+
+  const userIndex = books.findIndex((user) => user.id === number);
+  if (userIndex === -1) {
+    return res.status(404).json({ error: 'No such item found' });
+  }
+
+  books.splice(userIndex, 1);
+  res.status(204).send();
+});
+
 app.use((req, res) => {
   res.status(404).json({
     error: 'Route not found',
     message: `Cannot ${req.method} ${req.originalUrl}`,
   });
 });
-//Error handling of everything
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.log('Error:', err.message);
+  console.log('Error', err.message);
   res.status(500).json({
     error: 'Internal server error',
     message:
-      process.env.NODE_END === 'development'
+      process.env.NODE_END === 'developer'
         ? err.message
         : 'Something went wrong',
   });

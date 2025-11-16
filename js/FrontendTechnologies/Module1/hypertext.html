@@ -1,0 +1,117 @@
+<!--DOCTYPE html tells the browser it is html -->
+<!DOCTYPE html>
+<!--Language english and then is changed depending on the location-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--THe h1 is the child of parent section-->
+    <section>
+      <h1>Hello</h1>
+    </section>
+    <!--Aside defines content that is related to main content, like the section--->
+    <aside>
+      <h2></h2>
+    </aside>
+    <!--If nothing inside, any tag can close itself like this-->
+    <tag />
+    <!--Norman paragraph with its rules-->
+    <p></p>
+    <!--Paragraph that shows text as spaced in HTML-->
+    <pre></pre>
+    <!--Norman paragraph but says the text is in Spanish-->
+    <p lang="es"></p>
+
+    <!--Generic rule how the code is written-->
+    <!--The attribute could be style="background-color:red"-->
+    <element attribute="value"></element>
+    <!--
+        _self - documents open in the current window/tab.
+        _blank - documents open in the new window/tab.
+        _parent - documents open in the parent frame.
+        _top - documents open in the full body of the window.
+    -->
+    <a href="https://google.com" target="_parent"> Some random text </a>
+    <!--Using the rule we can set title attribute for the text when hovering over it-->
+    <p title="My tooltip">Some random text</p>
+    <!---link with name top, will be send to by link below it -->
+    <a name="top"></a>
+    <a href="#top""> Some random text </a>
+
+    <!---Button with redirect and an alert-->
+    <button onclick="window.location.href='https://google.com'; ">
+            Hello Google!
+    </button>
+
+    <!---on click run function-->
+    <button onclick="hello()"> Hello!</button>
+    <script>
+            function hello() {
+                alert("Hello my friend!");
+            }
+    </script>
+
+    <!---Img with description-->
+    <img 
+           width="100" 
+           height="100"
+           src="https://images.freeimages.com/images/large-previews/a31/colorful-umbrella-1176220.jpg" 
+           alt="Umbrella">
+
+  <!--Weird listings and placement-->
+  <p>
+    No need for closing tag in this case
+    <nav>
+      <ol> 
+        inside Ol li are in order
+        <li></li>
+      </ol>
+      <ul>
+        inside UL li has same priority
+        <li></li>
+      </ul>
+      <dl>
+        inside Dl displays name-value pairs
+        <dt>
+          inside Dt term, name
+        </dt>
+        <dd>
+          inside DD is description,value etc
+        </dd>
+      </dl>
+    </nav>
+    
+    <!--Tables with cols and rows, all go from left to right
+        Thus can add th to have headers, 3 in a row
+        tr with 3 td to fill from left to right-->
+    <table>
+      <caption> Adds title to table</caption>
+      <tr>
+        <th>
+          Th gives use header elements
+        </th>
+      </tr>
+      <tr>
+        Tr gives table row
+        <td>Gives us data</td>
+        <td>2</td>
+      </tr>
+    </table>
+  
+    <!--More breaks--->
+      <p>Normal text - This is a normal paragraph.</p>
+      <p>Normal text - <b>This is a bold paragraph.</b></p>
+      <p>Normal text - <strong>This is an important paragraph.</strong></p>
+      <p>Normal text - <i>This is an italic paragraph.</i></p>        
+      <p>Normal text - <em>This is an emphasized paragraph.</em></p>
+      <p>Normal text - <mark>This is a marked paragraph.</mark></p>
+      <p>Normal text - <small>This is a smaller paragraph.</small></p>
+      <p>Normal text - <del>This is a deleted paragraph.</del></p>
+      <p>Normal text - <ins>This is a inserted paragraph.</ins></p>
+      <p>Normal text - <sub>This is a subscript paragraph.</sub></p>
+      <p>Normal text - <sup>This is a superscript paragraph.</sup></p>
+  </body>
+</html>
