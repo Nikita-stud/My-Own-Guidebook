@@ -29,8 +29,3 @@ sentence.split(''); //split string by letters
 sentence.split(' '); //split string by words
 array.slice(); //Copies from index up to
 array.splice(); //Removes and or replaces indexes with other value
-
-
-1.Üb 2D arrays 
-2.Ûb von string ins array zu tausche
-3.Ûb aus den String sachen zu holen und tauschen

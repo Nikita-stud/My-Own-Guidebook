@@ -5,5 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <table>
+      <tr>
+        <th>name</th>
+        <th>surname</th>
+      </tr>
+      <tr id="table"></tr>
+      <button id="addRow">Add row</button>
+    </table>
+    <script>
+      const table = document.getElementById('table');
+      const button = document.getElementById('addRow');
+      const nameData = document.createElement('td');
+      const surnameData = document.createElement('td');
+
+      button.addEventListener('click', () => {
+        nameData.innerText = 'New Name';
+        surnameData.innerText = 'New Surname';
+        table.append(nameData);
+        table.append(surnameData);
+      });
+    </script>
+  </body>
 </html>

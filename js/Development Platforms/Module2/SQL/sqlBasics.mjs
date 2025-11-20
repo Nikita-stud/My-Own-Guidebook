@@ -2,6 +2,15 @@
 //MySQL Workbench, since SQL does not have a workbench, we can only run commands, browse,edit,create and modify structures
 //We need to download both
 
+//structure 
+// - database is where stuff is saved
+// - table is where we store our data in cols and rows
+// - columns is where the id ,username etc is saved from top to bottom
+// - rows is where data is stored in each col from left to right 
+
+
+//!!! mysql.server start to start my sql afte those steps
+
 /*
     1.Terminal enter: brew --version
     If no version download it on their website
@@ -20,10 +29,6 @@
 //Query editor- (where you write SQL)
 //Output panel- (query results and messages)
 
-CREATE DATABASE blog; //1.Press lightning and create a database called blog
-USE blog; //2.Switch to that database
-SHOW DATABASES; //Check if database was created
-
 //Refresh the link tab to see database, rightclick 
 //Table - has rows,cols, this is where we store data
 //Row = one item
@@ -31,15 +36,37 @@ SHOW DATABASES; //Check if database was created
 //Field - one piece of info I want to store
 //Data types - tells database what info each field can store
 
+//!!! SUM UP
 INT //whole number
-VARCHAR //text
+FLOAT // decimal number
+VARCHAR(n) //text with n amount of characters
+TEXT //Long text
+BOOLEAN 
+DATE //year-month-day
+DATETIME // 2024-11-10 20:20:00
+TIMESTAMP //Same as datetime but auto updates
+
+CREATE DATABASE blog; //1.Press lightning and create a database called blog
+USE blog; //2.Switch to that database
+SHOW DATABASES; //Check if database was created
+SHOW TABLES; //To see created tables
+DESCRIBE users; //See structure of table users
 
 //Create user table to store info
 CREATE TABLE users (
+  //id is field name, INT stores whole value, 
+  // PRI is same as PRIMARY making it unique for identifying
+  //AUTO_INCREMENT is assigning next available number through MySQL
   id INT PRIMARY KEY AUTO_INCREMENT,
+  //username field with text, max 200 letters
   username VARCHAR(100),
+  //email field wit text, max 255letters
   email VARCHAR(255)
 );
 
-SHOW TABLES; //To see created tables
-DESCRIBE users; //See structure of table users
+//Schema = structure of my database, id int, username varch etc
+//-- to // basically but in SQL
+
+//EXPORT DATABASE BY
+//click server top, data export, select database to explore
+//export to your own location as sql file, select both checkboxes

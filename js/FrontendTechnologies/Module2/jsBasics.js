@@ -39,6 +39,19 @@ window
   .getComputedStyle(document.getElementById('z'), null)
   .getPropertyValue('font-size');
 
+alert(); //text pop up
+prompt(); //text with submission or not, can have default value after a comma
+confirm(); //yes no option, null is empty sting upon cancel
+//if no, we can add text into <pre> as they like it in the HTML
+
+setTimeout(); // runs once
+setInterval(); // runs in a loop until cleared
+window.clearTimeout();
+window.clearInterval();
+
+const interval = setInterval(function wait() {}, 1000); // also possible
+clearInterval(interval);
+
 //random color
 const p = document.getElementById('p');
 function changeCol() {

@@ -49,6 +49,7 @@ window.location.href; // get or set URL to new one
 window.location.pathname; //current pathname in files
 window.location.protocol; //web protocol page
 window.location.port; //number of internet ports in current exchange
+window.location.hostname; //127.0.0
 window.location.assign(); //loads new doc
 
 //History /browsers history
