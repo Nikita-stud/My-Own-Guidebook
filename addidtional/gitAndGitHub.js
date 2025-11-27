@@ -16,7 +16,10 @@ q; //allows me to write again in terminal
  * git log // shows everything that has happened in our repo
  * git show //show all changes
  * git pull origin //get updates origin in yours
- * git push --all //update branches, tags etc..
+ * git push //finalize merge into main branch
+ * git push origin myNAme // pushes into origin/main the branch you specify
+ * git push origin myName --set-upstream //if it is first time pushing to git, makes my new branch track origin
+ * git push --all //update branches aka merge, tags etc..
  *
  * Stashing allows us to keep local change with no need to resolve conflicts.
  * We can save the code we dont want to be changes during development and add it anytime in future branches
@@ -31,12 +34,13 @@ q; //allows me to write again in terminal
  * or 3 dots, stash thereafter
  *
  * MERGING vs REBASE
- *
  * merging adds a merge commit, provides history
  * rebasing changes git history, so branches dont exist, only a single path when commiting.
  * rebase does not have branch history, rather a single path
  * git branch //shows you what branch you on
- * git branch new_Name //creates new branch, use _ for words
+ * git checkout myName //moves to that branch
+ * git checkout -b myNAme //creates new branch and moves to it
+ * git branch new_Name //creates new branch but stays on current branch, use _ for words
  * git rebase //
  *
  * !!!UP in Git round icon on the left next top pull request,
@@ -55,4 +59,10 @@ q; //allows me to write again in terminal
  * <p> Text paragraph</p> //highlights
  * javascript
  * console.log("Hello world"); //adds highlight too
+ *  * //list of stuff
+ * _text_ //to add italic, to the text in _
+ * __text__ //to add bold, to the text in __
+ * [link text](https) //add text to link
+ * ![alt text](https) //add img and alt text@
+ *
  */

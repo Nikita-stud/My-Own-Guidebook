@@ -36,6 +36,7 @@ function buttonClick() {
 
 //MODIFY ELEMENTS
 wrap(); // wraps matched elements with content.
+$("div").wrap("<p>Hello</p>")
 wrapAll(); // wraps the parent in content
 unwrap(); // unwraps the parent
 empty(); // removes all children
@@ -94,6 +95,7 @@ $('#offButton').on('click', function () {
 
 hover(); // hover
 click(); // single click event
+prompt() // set property like "disabled", true
 dblclick(); //double-click events.
 resize(); // on the browser’s window resize.
 $('#onButton').click(function () {
@@ -169,3 +171,7 @@ function action3() {
   $('p').fadeOut('slow');
   $('button').slideUp('slow');
 }
+
+
+//EXTRA
+text(String.fromCharCode(evt.charCode)) // Turns letters into Unicode chars
