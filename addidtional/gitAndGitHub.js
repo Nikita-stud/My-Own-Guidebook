@@ -1,4 +1,5 @@
 command + option + i; //open console panel in Browser
+shift + moveRight; //move selected text to left
 q; //allows me to write again in terminal
 
 /*GIT
@@ -21,7 +22,7 @@ q; //allows me to write again in terminal
  * git push origin myName --set-upstream //if it is first time pushing to git, makes my new branch track origin
  * git push --all //update branches aka merge, tags etc..
  *
- * Stashing allows us to keep local change with no need to resolve conflicts.
+ * STASHING allows us to keep local change with no need to resolve conflicts.
  * We can save the code we dont want to be changes during development and add it anytime in future branches
  * git stash // save as indexes, (will get rid of all your changes on your branch but dont worry)
  * git stash list //see the saves stashes
@@ -33,14 +34,22 @@ q; //allows me to write again in terminal
  * //
  * or 3 dots, stash thereafter
  *
+ * AMEND vs REVERT
+ * amend modifies a commit, before pushing
+ * revert reverts changes of a commit, does not delete changes
+ * git commit --amend -m // modifies last commit
+ * git revert //creates new commit and undo changes
+ *
+ * BRANCHES
+ * git branch //shows you what branch you on
+ * git checkout myName //moves to that branch
+ * git branch new_Name //creates new branch but stays on current branch, use _ for words
+ * git checkout -b myNAme //creates new branch and moves to it
+ *
  * MERGING vs REBASE
  * merging adds a merge commit, provides history
  * rebasing changes git history, so branches dont exist, only a single path when commiting.
  * rebase does not have branch history, rather a single path
- * git branch //shows you what branch you on
- * git checkout myName //moves to that branch
- * git checkout -b myNAme //creates new branch and moves to it
- * git branch new_Name //creates new branch but stays on current branch, use _ for words
  * git rebase //
  *
  * !!!UP in Git round icon on the left next top pull request,

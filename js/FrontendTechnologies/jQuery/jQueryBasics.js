@@ -19,6 +19,7 @@ on('load', () => {}); //on fully load of imgs and page DONT USE!!!
 
 //Same as waiting for page to load and then running
 $(function () {});
+$(() => {});
 
 //add h2 that is on this page already and add it inside container
 $('#container').append($('h2'));
@@ -58,6 +59,8 @@ $('#example p:not(p:eq(2))').css('font-family', 'Comic Sans MS');
 first; // :first-child
 last; // :last-child
 even; // index % 2 === 0 so 0,2,4,6,8
+$('p:even');
+$('p[lang]:even'); //with lang attribute
 odd; // index % 2 !== 0
 gt(); // index > n  so if gt(1), Everything after index 0 and 1
 lt(); // index < n
@@ -80,6 +83,8 @@ $('p[id^=para][lang*=en-]').css('font-size', '30px');
 
 //ADVANCED FILTERS !!! have : if purple and . if blue, all need space or blue after()
 contains(''); //filter all that contains certain text.
+$('p').contains('Th');
+$('p:contains("Th"):first-of-type'); //If not added to finding
 parent; //elements that have at least one child node (can be an element or text).
 has(); //contain at least one element that matches the specified selector.
 first - child;

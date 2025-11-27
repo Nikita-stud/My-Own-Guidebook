@@ -6,6 +6,8 @@ $('example').html('<p>Hello</p>'); //Will delete all code inside the example and
 //Creates plane text
 text();
 $('p:last').text('Hello');
+const text = $('button:first').text(); //text of first button
+
 
 prepend(); // adds before content
 append(); // adds on top of existing
@@ -83,15 +85,19 @@ css('font-size', 'function');
 
 //EVENTS
 on(); //on attaches one or more events
+// Must use a named function for .off() to work
 off(); // off unbind that or those event
-//Button to highlight on mouseover
-$('#onButton').on('click', function () {
-  $('#para1').on('mouseenter mouseleave', highlight);
+
+function hideAllParagraphs() {
+  $('p').hide();
+}
+$('#onButton').on('click', hideAllParagraphs); //on button that hides all p
+
+$('#offButton').on('click', () => { //off button that gets on button and unbinds the function
+  $('#onButton').off('click', hideAllParagraphs);
 });
-//button to turn of highlight
-$('#offButton').on('click', function () {
-  $('#para1').off('mouseenter mouseleave', highlight);
-});
+
+
 
 hover(); // hover
 click(); // single click event
@@ -130,7 +136,8 @@ slideUp() // hide() but sliding animation.
 $("p").hide("slow", "linear") //on btn click hides slow and linear the content
 
 toggle() // changes the current visibility of the matched elements
-fadeToggle() // toggle(), but fading animation.
+fadeToggle() // toggle(), but fading animation. speed
+//takes in speed opacity easing callback
 slideToggle() // toggle(), but sliding animation.
 $("p").toggle("fast", afterCompletion) //fast and calls a function
 
@@ -140,17 +147,27 @@ $("p").fadeTo("fast", 0.5);
 //Object containing new values - required
 animate()
 
+  $("p").animate({
+      padding: 0,
+      marginTop: 16,
+      marginBottom: 16,
+      marginLeft: 0,
+      marginRight: 0,
+      fontSize: 16,
+  }, "slow")
 
-        $("p").animate({
-            padding: 0,
-            marginTop: 16,
-            marginBottom: 16,
-            marginLeft: 0,
-            marginRight: 0,
-            fontSize: 16,
-        }, "slow")
+$('#button1').click(function () {
+  $(this).animate(
+    {
+      width: 200,
+    },
+    5000
+  );
+});
+//FUNCTIONS
+//if you want $(this) to work, you have to write function()
+//And not use arrow function
 
-//Functions
 function action1() {
   $('p').each(function () {
     let text = $(this).text();

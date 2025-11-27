@@ -16,10 +16,10 @@ Each folder or file covers a specific topic with:
 
 ## Topics Covered
 
-- [ ] Git & Version Control
-- [ ] JavaScript / jQuery
-- [ ] Typescript
-- [ ] BOM & DOM
+- [x] Git & Version Control
+- [x] JavaScript / jQuery
+- [x] Typescript
+- [x] BOM & DOM
 
 ## How I Use This
 
@@ -30,4 +30,4 @@ Each folder or file covers a specific topic with:
 
 ## Note
 
-This is a personal learning repo. Code here is for educational purposes and self-reference.
+This is a personal learning repo. Code here is for educational purposes and self reference.
