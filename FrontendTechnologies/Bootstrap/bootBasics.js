@@ -33,6 +33,10 @@ bootstrap.min.css; //mini file sized versions for production
 
 ems; //size relative to parent element, normal in html by start
 rems; // size relative to root element (HTML tag), used in bootstrap
+translate - middle; //-50% -50% translate, centers elements in middle
+
+//NOTE: most of these classes seem dumb but they are for assistive devices to understand
+//NOTE: if a div has been selected with table, carousel etc, all children have to have table- etc. prior to add class
 
 //SIZE OF WINDOW
 container; // default container
@@ -89,6 +93,7 @@ position - fixed;
 position - sticky;
 
 //Replacement of info
+display - 1; //creates larger, lighter headings
 h1 - h6; //you can add this to class in a div and it will behave like a header
 display - 1 - display - 6; //Almost like header but just stuff that is more noticeable
 fs - 1 - fs - 6; //font-size
@@ -108,7 +113,7 @@ align - bottom;
 align - text - top;
 align - text - bottom;
 
-//LISTS (display more table like)
+//LISTS -list of items and not nav items (display more table like)
 list - group; //list group, add to any element to create a list
 list - group - item; //li, or any single item of a list, can be even buttons
 list - group - item - action; //list items that are clickable will get a style on hover and click
@@ -121,7 +126,7 @@ disable; //turns grey (great for list items too)
 table; //add to table element
 table - secondary; // changes colour to primary, secondary, dark,
 table - striped; // make the colour of even and odd items slightly different.
-table - hover; // make items highlight on hover.
+table - hover; // make items highlight on hover. Can be added to table div
 table - active; // add to highlight it.
 table - bordered; // add to add borders to the table.
 table - borderless; // add to remove borders from the table.
@@ -164,6 +169,6 @@ pe - none; // pointer events are disabled, the element doesn’t react on click 
 pe - auto; // pointer events are enabled (this is the default).
 
 //ICONS Bootstrap
-//we need to link SVG css file to our project
+//we need to link additional SVG css file to our project
 //<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 //Through Bootstrap icons website we can copy code now
