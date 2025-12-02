@@ -1,7 +1,12 @@
-// Update a user (full replacement)
+//Update a user (full replacement)
+//We need send all data into body PUT request
+//put call to http://localhost:3000/restaurants/16
+//with all data change the 16th id item
 app.put('/users/:id', async (req, res) => {
   try {
+    //Id specifics of which user to update
     const userId = Number(req.params.id);
+    //PUT replaces whole user, so we need all params
     const { username, email } = req.body;
     if (isNaN(userId)) {
       return res.status(400).json({
@@ -27,6 +32,7 @@ app.put('/users/:id', async (req, res) => {
       });
     }
 
+    //Unlike in creating User, we set id as id passed into query
     const user: User = { id: userId, username, email };
     res.json(user);
   } catch (error) {

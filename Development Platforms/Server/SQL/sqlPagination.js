@@ -1,3 +1,5 @@
+//PAGINATION = decide what page and limit of data is presented
+
 //Returning all records can be too much for the memory
 page // 1,2,3
 limit //users per page (5,10,20)
@@ -26,14 +28,17 @@ app.get("/users", async (req, res) => {
     // Calculate offset
     const offset = (page - 1) * limit;
 
-    //turn numbers to string
-    //Probably .query instead of .execute
+    //We turn numbers from query in URL we fetched into 
+    //strings and place them securely into the request for Database
+    //it goes in under "?" in Command
     const [rows] = await pool.execute(
       "SELECT id, username, email FROM users LIMIT ? OFFSET ?",
       [limit.toString(), offset.toString()]
     );
+    //We say that rows should be checked in typescript as array of objects
     const users = rows as User[];
 
+    
     res.json(users);
   } catch (error) {
     console.error("Database error:", error);

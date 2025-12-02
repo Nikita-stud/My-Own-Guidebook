@@ -19,6 +19,8 @@ SELECT * FROM users ORDER BY id DESC;
 SELECT * FROM users ORDER BY email ASC;
 //only two returned
 SELECT * FROM users LIMIT 2;
+//id, username, email from users table only two users from 5th place (starts at 1)
+SELECT id, username, email FROM users LIMIT 2 OFFSET 5
 //ORDER BY id 
 //DESC LIMIT 1 show only newest user /highest id user
 SELECT * FROM users ORDER BY id DESC LIMIT 1;

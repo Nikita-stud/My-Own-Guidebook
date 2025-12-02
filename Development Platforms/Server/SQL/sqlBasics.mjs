@@ -51,6 +51,8 @@ USE blog; //2.Switch to that database
 SHOW DATABASES; //Check if database was created
 SHOW TABLES; //To see created tables
 DESCRIBE users; //See structure of table users
+SELECT * FROM users; //see all data in users table
+
 
 //Create user table to store info
 CREATE TABLE users (
@@ -63,6 +65,11 @@ CREATE TABLE users (
   //email field wit text, max 255letters
   email VARCHAR(255)
 );
+
+NOT NULL // Prevents empty values (title and user_id cannot be empty).
+PRIMARY KEY // Ensures each record has a unique identifier (id field).
+FOREIGN KEY // Maintains relationships between tables (user_id must reference a valid user).
+DEFAULT // Provides automatic values when none are specified (created_at gets current timestamp).
 
 //Schema = structure of my database, id int, username varch etc
 //-- to // basically but in SQL

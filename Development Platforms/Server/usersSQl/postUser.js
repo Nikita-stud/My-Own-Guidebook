@@ -1,26 +1,18 @@
-//POST to create user
+//CREATE USER, return object of created user and
+//show the created user to the user in response
 import { ResultSetHeader } from 'mysql2';
 
 app.post('/users', async (req, res) => {
   try {
+    //Extract username and email from the incoming JSON body.
     const { username, email } = req.body;
     if (!username || !email) {
       return res.status(400).json({
         error: 'Username and email are required',
       });
     }
-
-    // INSERT INTO the new user into the database
-    //const [result] takes the first element from the returned array
-    /*
-      Basically mysql2 talking to the database and send us data
-      ResultSetHeader, any] tells TypeScript what types to expect, contains:
-
-      insertId - The auto-generated ID of the new row (this is what we need).
-      affectedRows - How many rows were changed (should be 1 for successful insert).
-      changedRows - How many rows actually changed.
-    */
     const [result]: [ResultSetHeader, any] = await pool.execute(
+      // INSERT INTO the new user into the database
       'INSERT INTO users (username, email) VALUES (?, ?)',
       [username, email]
     );
