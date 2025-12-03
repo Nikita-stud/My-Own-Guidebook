@@ -11,20 +11,22 @@ PRIMARY KEY // Ensures each record has a unique identifier (id field).
 FOREIGN KEY // Maintains relationships between tables (user_id must reference a valid user).
 DEFAULT // Provides automatic values when none are specified (created_at gets current timestamp).
 
-//Instead store only reference to the user 
 //Table with a foreign key
 //With this table each user can have many posts but each post will belong to 1 user
-CREATE TABLE posts (
-  id INT PRIMARY KEY AUTO_INCREMENT, //unique identifier for each post. Created by database
-  title VARCHAR(200) NOT NULL, //NOT NULL means it cannot be empty
-  content TEXT,
-  user_id INT NOT NULL, //References which user wrote this post.
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, //Automatically records when the post was created.
-  //FOREIGN KEY (user_id): Declares that the user_id column in the posts table is a foreign key.
-  //REFERENCES users(id): Specifies that this foreign key points to the id column in the users table.
-  //ON DELETE CASCADE: When a user is deleted, all their posts are automatically deleted too (prevents orphaned data).
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+//EXPLANATION, we set restaurant_id first and down below we say that
+//restaurant_id should be id from restaurants table.
+//ALL reviews will be linked to the restaurant id in this table 
+CREATE TABLE reviews (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  restaurant_id INT NOT NULL,
+  reviewer_name VARCHAR(200) NOT NULL,
+  rating INT NOT NULL CHECK (rating >= 1 AND rating <= 5),
+  comment TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+  FOREIGN KEY (restaurant_id) REFERENCES restaurants(id) ON DELETE CASCADE
 );
+
+
 
 //TO SEE RELATIONSHIPS
 //press database on top, reverse engineering, next,next,blog,next,next,execute,next

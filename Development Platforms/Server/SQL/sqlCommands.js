@@ -11,8 +11,13 @@ UPDATE users SET email = 'alice.smith@example.com' WHERE id = 1;
 //Multiple updates
 UPDATE users SET username = 'alice_smith', email = 'a.smith@example.com' WHERE id = 1;
 
-//Delete (id does not delete the id, so the next user will get 5)
+//DELETE (id does not delete the id, so the next user will get 5)
 DELETE FROM users WHERE id = 4;
+
+//CASCADE DELETE 
+SELECT * FROM posts WHERE user_id = 4; //check posts
+DELETE FROM users WHERE id = 4; //delete those posts
+SELECT * FROM posts WHERE user_id = 4; //check again
 
 //Modify a table that exists use ALTER TABLE
 //We add column created at to users, TIMESTAMP stores data

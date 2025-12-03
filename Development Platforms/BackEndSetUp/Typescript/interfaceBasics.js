@@ -3,26 +3,20 @@ let age  = 25; // TypeScript knows this is number
 let name = "Alex"; // TypeScript knows this is string
 let isStudent = true; // TypeScript knows this is boolean
 
-
-// So this in not needed!
+// NOT LIKE THIS
 let age:number  = 25;
 let name:string = "Alex"; 
 let isStudent:boolean = true; 
 
-
-
 string[] // Array of strings
 number[] // Array of numbers
 boolean[] // Array of booleans
-
 null // Explicitly represents “no value” or “empty”
 undefined // Variable is declared but hasn’t been assigned a value
-
 any // Turns off TypeScript’s type checking completely
-
 never // Represents values that never occur
 
-//TypeScript Interface Example (capital letter convention for interfaces)
+//TypeScript Example (capital letter convention for interfaces)
 interface UserProfile {
   id: number;
   name: string;
@@ -32,7 +26,7 @@ interface UserProfile {
   phoneNumber?: string; // Optional - user might not provide phone
 }
 
-// Using interfaces usually looks like this:
+//HOW TO USE
 const user1: UserProfile = {
   id: 1,
   name: "Sarah",
@@ -40,9 +34,7 @@ const user1: UserProfile = {
   // avatarUrl, bio, and phoneNumber are optional, so we can omit them
 };
 
-
-
-//Example of interface with nested objects and arrays
+//NESTED OBJECTS and ARRAYS
 interface SendProfile {
     name: string,
     email: string,
@@ -52,10 +44,6 @@ interface SendProfile {
     alreadySavedItems: Cart[];
     bio?: string,
     description?: string,
-}
-
-interface Cart {
-    item: string,
 }
 
 const myUser: SendProfile = {
@@ -68,3 +56,31 @@ const myUser: SendProfile = {
 }
 
 
+//EXTENTENDING INTERFACE
+interface Post {
+  id: number;
+  title: string;
+  content: string;
+  user_id: number;
+  created_at: string;
+}
+
+interface PostWithUser extends Post { //PostWithUser will have all posts stuff plus its own
+  username: string;
+  email: string;
+}
+
+//API RESPONSE SAFETY
+interface UserResponse {
+  success: true;
+  data: User;
+}
+const userResponse: UserResponse = {
+  success: true,
+  data: {
+    id: 1,
+    name: 'Sarah',
+    email: 'sarah@example.com',
+    createdAt: new Date(),
+  },
+};
