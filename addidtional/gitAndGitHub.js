@@ -7,6 +7,9 @@ q; //allows me to write again in terminal
  * 1.Download homebrew
  * 2.Download git from homebrew
  *
+ * Download links:
+ * copy link, paste with git clone, select the place to store
+ *
  * Link to git commands: https://git-scm.com/docs
  * git --version //to check if I have it or download it from net
  * git status //shows stage,not stages files

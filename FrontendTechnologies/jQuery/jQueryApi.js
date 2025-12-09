@@ -5,7 +5,7 @@
 $.ajax({
   url: 'https://api.giphy.com/v1/gifs/random?api_key=bejneIEUBj45902425nbv3irhwekh&rating=g',
   success: function (response) {
-    console.log(response);
+    console.log('Success message:', response);
   },
 });
 

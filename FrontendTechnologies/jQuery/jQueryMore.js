@@ -192,3 +192,9 @@ function action3() {
 
 //EXTRA
 text(String.fromCharCode(evt.charCode)) // Turns letters into Unicode chars
+
+
+//Open new page 
+$(`#personalTable img`).click(function () {
+  window.open($(this).attr('src'), '_blank');
+});
