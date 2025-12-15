@@ -70,6 +70,9 @@ NOT NULL // Prevents empty values (title and user_id cannot be empty).
 PRIMARY KEY // Ensures each record has a unique identifier (id field).
 FOREIGN KEY // Maintains relationships between tables (user_id must reference a valid user).
 DEFAULT // Provides automatic values when none are specified (created_at gets current timestamp).
+TIMESTAMP // time
+CURRENT_TIMESTAMP //Now
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP // set time to be now
 
 //Schema = structure of my database, id int, username varch etc
 //-- to // basically but in SQL

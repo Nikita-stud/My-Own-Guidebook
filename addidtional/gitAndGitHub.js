@@ -1,7 +1,11 @@
 command + option + i; //open console panel in Browser
 shift + moveRight; //move selected text to left
 control + d; //select all same elements and change them
-q; //allows me to write again in terminal
+command +
+  +(
+    //get quick fix options
+    q
+  ); //allows me to write again in terminal
 
 /*GIT
  * 1.Download homebrew
