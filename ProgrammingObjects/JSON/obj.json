@@ -1,0 +1,12 @@
+{
+  "array1": [
+    {
+      "value1": 10,
+      "value2": "dog",
+      "value3": true
+    },
+    "data"
+  ],
+  "value4": null,
+  "array2": ["data", "anotherData", 123]
+}
