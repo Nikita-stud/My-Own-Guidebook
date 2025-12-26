@@ -4,8 +4,8 @@
 
 //Serialization = producing new JSON
 //Deserialization = getting data from JSON
-//JSON.parse() converts a string → object
-//JSON.stringify() converts an object → string
+//JSON.parse() converts a JSON string → js object
+//JSON.stringify() converts an js object → JSON string
 
 //Js Objects (one we use in js)
 const jsObject = {
