@@ -1,3 +1,6 @@
+//Object Orientated Programming:
+//we think in terms of object and set them together, this is more buggy if on large scale thus we have functional programming
+
 //We can create Class, it is a function that will create an Object
 //You will parse values inside and it will create an object
 //!!! IN classes you wont see functions called, thus need to set value already prior that will be shown
