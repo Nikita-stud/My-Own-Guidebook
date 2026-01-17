@@ -100,22 +100,22 @@ MyDog2.prototype.birth = function(){
 }
 
 
-//Extend a class for
-// class ElectricCar extends Car {
-//   constructor(make, model, year, batteryCapacity) {
-//     // Call the parent constructor
-//     super(make, model, year);
-//     // Extend by adding a new property
-//     this.batteryCapacity = batteryCapacity;
-//   }
-//   // Add a new method for electric cars only
-//   charge() {
-//     return `Charging ${this.make} (${this.batteryCapacity} kWh capcity)...`;
-//   }
-//   // Override an existing method, building on the parent version
-//   describe() {
-//     return `${super.describe()} [Electric, ${
-//       this.batteryCapacity
-//     } kWh battery]`;
-//   }
-// }
+// Extend a class for
+class ElectricCar extends Car {
+  constructor(make, model, year, batteryCapacity) {
+    // Call the parent constructor
+    super(make, model, year);
+    // Extend by adding a new property
+    this.batteryCapacity = batteryCapacity;
+  }
+  // Add a new method for electric cars only
+  charge() {
+    return `Charging ${this.make} (${this.batteryCapacity} kWh capcity)...`;
+  }
+  // Override an existing method, building on the parent version
+  describe() {
+    return `${super.describe()} [Electric, ${
+      this.batteryCapacity
+    } kWh battery]`;
+  }
+}

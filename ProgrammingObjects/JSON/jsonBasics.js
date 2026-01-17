@@ -69,3 +69,18 @@ const jsonData= {
 let xmlData = json2xml(jsonData)
 
 console.log("XLM", xmlData) //no need to stringify
+
+//Value is the data,
+//Replacer controls what gets included [name, email] just those, or (function of converting numbers etc.) like (key, users)=>{}
+//Controls format readability, 2 would be 2 spaces between key and value
+JSON.stringify(value, replacer, spacer);
+
+//Since empty Objects are truthy, we need another way to check if Object is empty or nor
+//Object.keys returns array of keys so "name": "Bob" would return ["name"]
+Object.keys(data);
+
+//Can check for length of keys to see if empty
+Object.keys(data).length === 0;
+
+//check if data is an array or object
+data.constructor === Object;

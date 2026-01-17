@@ -1,5 +1,6 @@
 //OOP = Object-Oriented Programming are objects we dont need to know anything about, they are abstract
 //Only essential attributes, only allow get and set and no modify
+//Ca store secure data that is not accessible by others
 //Build on class by extending the class
 class BankAccount {
   #balance; // private field

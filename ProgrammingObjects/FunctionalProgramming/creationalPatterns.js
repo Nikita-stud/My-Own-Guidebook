@@ -1,0 +1,1 @@
+//Singleton: class that has only one instance
