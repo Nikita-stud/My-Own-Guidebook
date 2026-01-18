@@ -21,7 +21,7 @@ const allEven2 = numbers.every(index); // false
 some(); //boolean if true
 const someEven = numbers.some((x) => x % 2 == 0); // true
 
-//slice creates a shallow copy of a portion of an array
+//!!!slice creates a shallow copy of a portion of an array
 //making it perfect for non mutating operations
 //reverse the numbers array
 const reversed = numbers.slice().reverse(); // [12, 9, 2, 5, 1]
@@ -33,21 +33,4 @@ const ascendingStrings = (a, b) => {
   if (a.toString() > b.toString()) return 1;
   return 0;
 };
-const sortedNumbers = numbers.slice().sort(ascendingStrings);
-
-//CALL and APPLY
-const add = (x, y, z) => x + y + z;
-console.log(add(1, 2, 3)); //normal call
-console.log(add.call(null, 1, 2, 3)); //call with null as "this" and arguments
-
-//APPLY takes arguments as array
-const add = (x, y, z) => x + y + z;
-console.log(add(1, 2, 3));
-console.log(add.apply(null, [1, 2, 3]));
-
-//BIND creates a new function with preset arguments
-const add = (x, y, z) => x + y + z;
-var func1 = add.bind(null, 1, 2);
-var func2 = add.bind(null, 10);
-func1(10); // 13
-func2(1, 5); // 16
+const sortedNumbers = numbers.slice().sort(ascendingStrings); // [1, 12, 2, 5, 9]

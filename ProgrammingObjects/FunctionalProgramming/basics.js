@@ -41,10 +41,8 @@ const person2 = { name: 'AQlic', age: '02' }; //Data is saved here
 const haveBirthday = (person2) => ({
   //Function is created here
   ...person2,
-  age: person.age + 1,
+  age: person2.age + 1,
 });
 
 const updatedPerson2 = haveBirthday(person); //Function is called and saved here
 console.log(person.age); //3
-
-//3. FIRST CLASS FUNCTIONS

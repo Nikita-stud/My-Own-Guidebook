@@ -15,6 +15,7 @@ const myObject = {
     this.myStatus = status;
   },
 };
+legs.includes(left); //true
 
 myObject.walk(status); //Function call
 //Add new function to Object
