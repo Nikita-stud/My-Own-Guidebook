@@ -31,7 +31,10 @@
 //As a [role], I want [feature] so that I can [benefit]
 //Create a definition of "done", also give point as estimate of importance
 
-//Kanban: signal that there is needed pull new stuff. focuses on customer valuable implementations
+//Kanban: Continues board of tasks
+//https://www.linkedin.com/learning/managing-jira-projects-2-managing-boards/managing-issues?resume=false&u=43268076
+
+// signal that there is needed pull new stuff. focuses on customer valuable implementations
 //        has user stories, to do, doing and done. User takes a task themselfs
 //        https://www.guru99.com/kanban-interview-questions.html
 //        Teams need to have set rules how to write code
@@ -43,6 +46,8 @@
 //Value stream map: phases task must go through before completion
 //new task is added to input
 //dev has time then analysis board
+
+//Scrum: Sprints
 
 //Belbin: A good team leader treats members of a team like actors on the stage. There need to be exits and entrances. Not everyone is required to be on the stage at the same time.” Dr Meredith Belbin
 
