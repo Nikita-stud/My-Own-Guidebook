@@ -8,7 +8,6 @@ text();
 $('p:last').text('Hello');
 const text = $('button:first').text(); //text of first button
 
-
 prepend(); // adds before content
 append(); // adds on top of existing
 $('#para1').append('Added text onto');
@@ -38,7 +37,7 @@ function buttonClick() {
 
 //MODIFY ELEMENTS
 wrap(); // wraps matched elements with content.
-$("div").wrap("<p>Hello</p>")
+$('div').wrap('<p>Hello</p>');
 wrapAll(); // wraps the parent in content
 unwrap(); // unwraps the parent
 empty(); // removes all children
@@ -73,11 +72,11 @@ offset(); // gets current coordinates relative to the document.
 //Inside offset span, $("#example").offset() shows coordinates relative to document
 //add together with , ...150px from top, 50 from left
 $('#offset').html(
-  $('#example').offset().top + ', ' + $('#example').offset().left
+  $('#example').offset().top + ', ' + $('#example').offset().left,
 );
 position(); // gets current coordinates, relative to the offset parent.
 $('#position').html(
-  $('#example').position().top + ', ' + $('#example').position().left
+  $('#example').position().top + ', ' + $('#example').position().left,
 );
 
 //YOU CAN ADD FUNCTIONS TO STYLES
@@ -93,15 +92,14 @@ function hideAllParagraphs() {
 }
 $('#onButton').on('click', hideAllParagraphs); //on button that hides all p
 
-$('#offButton').on('click', () => { //off button that gets on button and unbinds the function
+$('#offButton').on('click', () => {
+  //off button that gets on button and unbinds the function
   $('#onButton').off('click', hideAllParagraphs);
 });
 
-
-
 hover(); // hover
 click(); // single click event
-prompt() // set property like "disabled", true
+prompt(); // set property like "disabled", true
 dblclick(); //double-click events.
 resize(); // on the browser’s window resize.
 $('#onButton').click(function () {
@@ -109,59 +107,62 @@ $('#onButton').click(function () {
 });
 
 //EVENT TYPES
-type
-which
-target.id
-relatedTarget
-pageX
-pageY
-clientX
-clientY
-metaKey
-data
-data.name
+type;
+which;
+target.id;
+relatedTarget;
+pageX;
+pageY;
+clientX;
+clientY;
+metaKey;
+data;
+data.name;
 
 //EFFECTS AND ANIMATION
 //speed - required parameter
 //opacity - required parameter.
 
-show() // reveals the matched elements.
-fadeIn() // show() but fading animation.
-slideDown() //show(), makes but sliding animation.
-$("p").show("slow") //on button click shows this but slow
+show(); // reveals the matched elements.
+fadeIn(); // show() but fading animation.
+slideDown(); //show(), makes but sliding animation.
+$('p').show('slow'); //on button click shows this but slow
 
-hide() // hides the matched elements.
-fadeOut() // hide() but fading animation.
-slideUp() // hide() but sliding animation.
-$("p").hide("slow", "linear") //on btn click hides slow and linear the content
+hide(); // hides the matched elements.
+fadeOut(); // hide() but fading animation.
+slideUp(); // hide() but sliding animation.
+$('p').hide('slow', 'linear'); //on btn click hides slow and linear the content
 
-toggle() // changes the current visibility of the matched elements
-fadeToggle() // toggle(), but fading animation. speed
+toggle(); // changes the current visibility of the matched elements
+fadeToggle(); // toggle(), but fading animation. speed
 //takes in speed opacity easing callback
-slideToggle() // toggle(), but sliding animation.
-$("p").toggle("fast", afterCompletion) //fast and calls a function
+slideToggle(); // toggle(), but sliding animation.
+$('p').toggle('fast', afterCompletion); //fast and calls a function
 
-fadeTo() // changes the elements’ opacity to a specified value.
-$("p").fadeTo("fast", 0.5);
+fadeTo(); // changes the elements’ opacity to a specified value.
+$('p').fadeTo('fast', 0.5);
 
 //Object containing new values - required
-animate()
+animate();
 
-  $("p").animate({
-      padding: 0,
-      marginTop: 16,
-      marginBottom: 16,
-      marginLeft: 0,
-      marginRight: 0,
-      fontSize: 16,
-  }, "slow")
+$('p').animate(
+  {
+    padding: 0,
+    marginTop: 16,
+    marginBottom: 16,
+    marginLeft: 0,
+    marginRight: 0,
+    fontSize: 16,
+  },
+  'slow',
+);
 
 $('#button1').click(function () {
   $(this).animate(
     {
       width: 200,
     },
-    5000
+    5000,
   );
 });
 //FUNCTIONS
@@ -189,12 +190,10 @@ function action3() {
   $('button').slideUp('slow');
 }
 
-
 //EXTRA
-text(String.fromCharCode(evt.charCode)) // Turns letters into Unicode chars
+text(String.fromCharCode(evt.charCode)); // Turns letters into Unicode chars
 
-
-//Open new page 
+//Open new page
 $(`#personalTable img`).click(function () {
   window.open($(this).attr('src'), '_blank');
 });

@@ -3,6 +3,26 @@
 //Runtime = Environment where JS is executed, like browser, node, etc.
 //Architectural Patterns = MVC/MVVM/CBA, Blueprint how UI code structure should be
 
+//Vite = a tool that reloads code fast and packages everything for productions, reloads changes in milseconds
+//       only loads files I currently us, only rebuilds changes files
+//       without it React changes would take minutes to load and would cost more space 
+
+//Vites = same but for tests inside of Vite projects
+
+//Virtual DOM = VDOM is JS Object describing what UI should looks like, blueprint of DOm
+/**
+ * A copy of DOM and only specific changes are made in pomparison to real DOM the copy is made of called Diffing
+ * Creates Virtual Dom tree and entire Ui then loads real DOM, react creates new VIrtual DOm when updated, old tree is compressed into new
+ * minimal operations thorugh algorithm is done to compress, updating real DOM
+ */
+
+//React Developer Tools = Helps find bugs, inspects the React component tree
+/**                       View and edit Props and State, identify performance bottlenecks
+*                         Download as extension in the BROWSER, it will ad to inspection two more parts
+*                         COMPONENTS Tab: shows tree structure of my React components, when a component is selected, it will show on the right the data passed from the parent
+*                         PROFILE Tab: shows time it took to load each component
+*/
+
 //More on LIBRARIES:
 /**
  * Utility libraries: ready-made function, like lodash or date-fns
@@ -59,7 +79,7 @@
  * JS engine: parses JS code and converts it into machine instructures
  * APIs: functionalities to environment allowing JS to interact with outside world, browser run time and server side
  *   Browser side:
- *       DOM: interaction with web page content
+ *       DOM: interaction with web page content, tree like structure of HTML, JS can interact with the DOM, but constant changes will break it
  *       BOM: interaction with browser
  *       Web Storage API: localStorage, sessionStorage
  *   Server side:

@@ -111,6 +111,26 @@ navbar - collapse; // groups and hides navbar content by a parent screen size br
     </div>
  */
 
+/**      </ul>
+ *         <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              data-bs-offset="0,0"
+              href="#"
+              role="button"
+              aria-expanded="false"
+              >Orders</a
+            >
+            <ul class="dropdown-menu">
+              <li><a href="#" class="dropdown-item">Search</a></li>
+              <li><a href="#" class="dropdown-item">Add</a></li>
+              <li><a href="#" class="dropdown-item">Remove</a></li>
+            </ul>
+          </li>
+        </ul>
+ */
+
 //CAROUSEL
 //will change every 5s by default if
 //you add data-bs-ride="carousel" to div tag
