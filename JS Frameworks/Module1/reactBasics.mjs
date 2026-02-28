@@ -20,13 +20,14 @@ npm run dev
  * Components = small parts of code that you can set up together
  *              start with capital letter "PascalCode"
  * Function Components = accept single argument, called props and returns jsx that describes UI
+ * https://react.dev/learn
  */
 
 //JSX: looks like HTML and can be JS in same code, is from XML back in the days
 //!!! can only return ONE and only ONE element. It can have million stuff inside but it has to be alone
 //Just have a returned <div> </div> and put stuff inside or empty <></>
 import React from 'react'; // May not be needed in newer setups, but good practice. Need for <> fragment 
-{} //to embed js into html tags just as functions wound, but also returning the HTML in same go
+{} //let you "escape back" into JS to embed code
 <WelcomeMessage/> //to call function in the code
 {/* */} //comment syntax 
 className="" // class 
@@ -64,3 +65,18 @@ class OldStyleWelcome extends React.Component {
         return <h1>Velkommen (gammel stil)!</h1>;
     }
 }
+
+//Functional components + Hooks are the modern standard. Class components are legacy.
+/**
+ * Functional — simpler: const Greet = ({ name }) => <h1>Hi {name}</h1>
+Class — verbose: class Greet extends React.Component { render() {...} }
+Functional uses Hooks: useState, useEffect, useContext...
+Class uses lifecycle methods: componentDidMount, componentDidUpdate...
+Functional — no 'this': No this.state, no this.props
+Both accept props: Props passed from parent either way
+**/
+
+/** 
+ * Props flow DOWN the component tree.
+ * Prop drilling = passing through many layers.
+* */

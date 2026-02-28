@@ -1,5 +1,5 @@
-//Library = Reusable code for specific task from a collection, (I am in control)
-//Framework = dictate a certain way to structure your code "opinionated", Framework is in control, I build like they want, Libraries are usually in Frameworks
+//Library = Reusable code for specific task from a collection, (I am in control of when and what to call) JQuery is a library
+//Framework = dictate a certain way to structure your code "opinionated", Framework is in control, I build like they want, they tel me wht they need and when they will use ita, Libraries are usually in Frameworks
 //Runtime = Environment where JS is executed, like browser, node, etc.
 //Architectural Patterns = MVC/MVVM/CBA, Blueprint how UI code structure should be
 
