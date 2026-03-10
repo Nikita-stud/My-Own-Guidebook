@@ -1,5 +1,5 @@
 //READING FILES
-const fs = requires('fs');
+const fs = requires('fs'); //file system
 
 //Synchronouse version
 fs.writeFileSync('example.txt', 'text'); //created example file and writes "text" into it
@@ -25,3 +25,15 @@ fs.writeFile('example.txt', 'text', (err) => {
 //BUT only read once at start of the program
 const x = require('./number');
 console.log(x); //text
+
+
+//Also possible to add file and stuff into it, will always add new stuff on top
+fs.appendFile('.file.js', `${name}, `, (err) => {
+  if (err) {
+    throw Error;
+  }
+});
+node append
+
+
+
