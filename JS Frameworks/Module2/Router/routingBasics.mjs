@@ -5,9 +5,9 @@
 
 //Client side routing, (reads url and tells it to us, showcasing what we are asked of)
 //USE ROUTING LIBRARY
-React Router 
+//React Router 
 //Or
-TanStack Router
+//TanStack Router
 
 //Download
 npm install react-router-dom@6
@@ -41,11 +41,10 @@ import { BrowserRouter } from 'react-router-dom';
 //2.Routes and Route (inside the App.jsx)
 import { Routes, Route } from 'react-router-dom'; // Import Routes and Route
 
-<Routes>
+<Routes> //Matches first route in line
     <Route path="/" element={<HomePage />} /> {/* Root path */}
     <Route path="/about" element={<AboutPage />} /> {/* About path */}
 </Routes>
-
 
 //LINKS:
 //Link, it renders <a> in react to "navigate links"

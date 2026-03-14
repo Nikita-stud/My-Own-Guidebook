@@ -1,0 +1,18 @@
+//If millions of data
+//sends a request to the server for the first data page. This request usually includes parameters like page=1 and limit=10
+// clicks “Next” or a specific page number, the client sends a new request to the server for that new page (e.g., page=2&limit=10)
+
+const [currentPage, setCurrentPage] = useState(1);
+const [products, setProducts] = useState([]);
+
+useEffect(() => {
+  fetch(`https://v2.api.noroff.dev/online-shop?page=${currentPage}`)
+    .then((res) => res.json())
+    .then((json) => setProducts(json.data));
+}, [currentPage]);
+
+{
+  products.map((p) => <p key={p.id}>{p.title}</p>);
+}
+ <button onClick={() => setCurrentPage(p => p - 1)}>Previous</button>
+<button onClick={() => setCurrentPage(p => p + 1)}>Next</button>
