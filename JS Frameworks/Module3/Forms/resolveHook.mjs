@@ -2,19 +2,9 @@
 
 npm install @hookform/resolvers zod
 
-import { z } from 'zod';
-export const NameSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(2, { message: 'Navn må være minst 2 tegn.' })
-    .max(50, { message: 'Navn kan ikke overstige 50 tegn.' }),
-});
 
-
-import { useForm } from 'react-hook-form';
+//1.
 import { zodResolver } from '@hookform/resolvers/zod'; //THIS IS the RESOLVE
-import { NameSchema } from './schemas'; // Assuming schemas.js is in the same directory
 
 function RHFZodSimpleNameForm() {
   const {

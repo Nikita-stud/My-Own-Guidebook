@@ -1,4 +1,5 @@
 command + option + i; //open console panel in Browser
+Ctrl + Shift + L; //Select ALL occurrences
 shift + moveRight; //move selected text to left
 control + d; //select all same elements and change them
 control + c; //restart terminal

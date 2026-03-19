@@ -19,10 +19,11 @@ const productsRoute = new Route({
   },
 });
 
-//2. on the page define the route you import
+//2. on the page define specific the route you import
 import { productsRoute } from '../router';
 
 // The hook knows 'query' is string|undefined and 'page' is number
+//query — the search term from the URL ?query=headphones
 const { query, page } = productsRoute.useSearch();
 
 //filter through query (do same for pages)
@@ -36,7 +37,12 @@ const filteredProducts = query
 //FOR SEARCh
 import { useState } from 'react';
 
+//we will save the undefined query search as new
 const [localQuery, setLocalQuery] = useState(query || '');
+
+const handleSearch = () => {
+  router.navigate({ to: '/', search: { query: localQuery, page: 1 } });
+};
 
 <input
   type="text"
@@ -49,3 +55,5 @@ const [localQuery, setLocalQuery] = useState(query || '');
   to={productsRoute.to}
   search={{ page: page, query: localQuery || undefined }}
 ></Link>;
+//or
+<button onClick={handleSearch}>Søk</button>;

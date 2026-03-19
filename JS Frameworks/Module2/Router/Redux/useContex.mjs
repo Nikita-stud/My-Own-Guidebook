@@ -1,3 +1,5 @@
+//NOT REDUX BUT REACT,DONT USE
+//React state version (USE ZUSTAND)
 //useState is local state
 //lifting state up is what we learned but it has drowbacks
 //Sharing state is what we need for shopping carts and far away data to talk to each other

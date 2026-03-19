@@ -4,25 +4,27 @@
 //    Best for small api data fetches
 //it is build on
 // itemsPerPage, currentPage, totalItems , totalPages, Logic to slice the data
-//
-//
+
+//1.Set amount shown per page
 const itemsPerPage = 3;
 const [currentPage, setCurrentPage] = useState(1);
 
-// Calculate total pages from API
+//2. Calculate total pages from API
 const totalPages = Math.ceil(norwegianCounties.length / itemsPerPage);
 
-// Calculate the items for the current page
+//3. Calculate the items for the current page
 const indexOfLastItem = currentPage * itemsPerPage;
 const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 const currentItems = norwegianCounties.slice(indexOfFirstItem, indexOfLastItem);
 
- const handlePageChange = (pageNumber) => {
-   if (pageNumber >= 1 && pageNumber <= totalPages) {
-     setCurrentPage(pageNumber);
-   }
+//4.set up +1 page or -1page
+ const handleNextPage = () => {
+   setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
  };
 
+ const handlePreviousPage = () => {
+   setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+ };
 
 <button onClick={handlePreviousPage} disabled={currentPage === 1}>
   Previous
@@ -32,6 +34,7 @@ const currentItems = norwegianCounties.slice(indexOfFirstItem, indexOfLastItem);
 </button>
 
 
+//EXAMPLE:
 //THE BUTTONS
 import React from 'react';
 

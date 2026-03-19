@@ -2,7 +2,7 @@
 //Less code, less error, simpler validation, good with other libraries,plus accessability
 npm install react-hook-form
 
-//useForm hook, returns an object containing methods and properties to handle form
+//1. useForm hook, returns an object containing methods and properties to handle form
 import { useForm } from 'react-hook-form';
 function MyForm() {
   const {
@@ -13,10 +13,10 @@ function MyForm() {
   // ... watch = watch and rerender components on change, reset, reset form, setValue, to set value of field
 }
 
-//you spread the register function to connect to useForm (firstName is the name of the input, will be the key) rest is rules
+//2. you spread the register function to connect to useForm (firstName is the name of the input, will be the key) rest is rules
 <input {...register('firstName', { required: true, minLength: 2 })} />
 
-//handleSubmit
+//3. handleSubmit
 const onSubmit = (data) => {
   console.log('Form data:', data); // 'data' contains validated form values
 };

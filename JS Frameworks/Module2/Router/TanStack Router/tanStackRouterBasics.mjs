@@ -78,6 +78,14 @@ params={{ productId: product.id }}>
   See details
 </Link>
 
+//In route it would look like
+export const productDetailRoute = new Route({
+  getParentRoute: () => rootRoute, // Or another parent route
+  path: '/products/$productId', // Use $ to denote a parameter
+  component: ProductDetailPage,
+});
+
 //export the productDetailsRoute from routes into page you fethc url param
 import { useParams } from '@tanstack/react-router';
-  const { productId } = useParams({ strict: false });
+
+const { productId } = productDetailsRoute.useParams({ strict: false });

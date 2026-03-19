@@ -5,14 +5,52 @@
 const [currentPage, setCurrentPage] = useState(1);
 const [products, setProducts] = useState([]);
 
-useEffect(() => {
-  fetch(`https://v2.api.noroff.dev/online-shop?page=${currentPage}`)
-    .then((res) => res.json())
-    .then((json) => setProducts(json.data));
-}, [currentPage]);
+const API = 'https://v2.api.noroff.dev/old-games';
+const LIMIT = 5;
 
-{
-  products.map((p) => <p key={p.id}>{p.title}</p>);
+function GamesList() {
+  const [games, setGames] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchGames = async () => {
+      setIsLoading(true);
+      const response = await fetch(`${API}?page=${currentPage}&limit=${LIMIT}`); // send page number to server
+      const result = await response.json();
+      setGames(result.data); // items for this page only
+      setTotalPages(result.meta.pageCount); // how many pages exist total
+      setIsLoading(false);
+    };
+
+    fetchGames();
+  }, [currentPage]); // re-runs every time page changes
+
+  if (isLoading) return <p>Loading...</p>;
+
+  return (
+    <div>
+      {games.map((game) => (
+        <p key={game.id}>{game.name}</p>
+      ))}
+
+      <button
+        disabled={currentPage === 1}
+        onClick={() => setCurrentPage((p) => p - 1)}
+      >
+        Prev
+      </button>
+      <span>
+        {' '}
+        Page {currentPage} of {totalPages}{' '}
+      </span>
+      <button
+        disabled={currentPage === totalPages}
+        onClick={() => setCurrentPage((p) => p + 1)}
+      >
+        Next
+      </button>
+    </div>
+  );
 }
- <button onClick={() => setCurrentPage(p => p - 1)}>Previous</button>
-<button onClick={() => setCurrentPage(p => p + 1)}>Next</button>

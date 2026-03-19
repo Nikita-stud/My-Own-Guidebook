@@ -127,3 +127,42 @@ DugnadFormData would look like:
         .status(201)
         .json({ message: 'Påmelding mottatt!', data: validatedData });
     });
+
+
+//SUM UP
+//*
+// .trim(): A transformation that removes leading/trailing whitespace from a string before other validations are applied. Very useful for user input.
+
+.min(1, { message: "..." }) for strings: This effectively makes a string field required, as an empty string (after trim) would fail the min(1) check.
+
+z.enum(["option1", "option2"]): Defines that the value must be one of the specified string literals. Useful for select fields.
+
+errorMap: Provides a way to customise error messages for enum validation.
+
+.regex(REGEX, { message: "..." }): Validates a string against a regular expression.
+
+.refine(validatorFn, { message, path }): This is a powerful method for custom validation logic that might involve multiple fields or more complex checks than standard Zod methods provide.
+
+validatorFn: A function that receives the data (field value or entire object data if .refine is on z.object()) and returns true if valid, false otherwise.
+
+path: (Used with object-level .refine) An array of strings specifying which field the error message should be associated with */
+
+
+//USE API Endpoints (Server-side): Before processing any incoming request data (e.g., from req.body in an Express app), parse it with your Zod schema. If it fails, return a 400 Bad Request error with Zod's error messages. This ensures your backend only processes valid data.
+   // Example in a Node.js/Express route handler
+    app.post('/api/register-dugnad', (req, res) => {
+      const result = DugnadFormSchema.safeParse(req.body);
+
+      if (!result.success) {
+        return res
+          .status(400)
+          .json({ errors: result.error.flatten().fieldErrors });
+      }
+
+      // Process result.data (validated and typed)
+      const validatedData = result.data;
+      // ... save to database, etc. ...
+      res
+        .status(201)
+        .json({ message: 'Påmelding mottatt!', data: validatedData });
+    });
