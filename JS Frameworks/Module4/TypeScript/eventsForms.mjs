@@ -2,35 +2,47 @@
 //https://vimeo.com/1175106065/dbc45c54b8?share=copy&fl=sv&fe=ci
 
 //when attaching event handler onClick, onChange DOM element in React, the handler function receives an event object
-React.MouseEvent<ElementType> //For mouse events like onClick, onMouseDown, onMouseUp
-React.ChangeEvent<ElementType> //For onChange events, typically on form elements <input>, <select>, <textarea>
-React.FocusEvent<ElementType> // For onFocus and onBlur.
-React.KeyboardEvent<ElementType> //For onKeyDown, onKeyUp, onKeyPress
-React.FormEvent<ElementType> // For onSubmit on a <form> element. ElementType is typically HTMLFormElement.
+React.ChangeEvent<HTMLInputElement>    // input onChange
+React.ChangeEvent<HTMLSelectElement>   // select onChange
+React.ChangeEvent<HTMLTextAreaElement> // textarea onChange
+React.FormEvent<HTMLFormElement>       // form onSubmit
+React.MouseEvent<HTMLButtonElement>    // button onClick
+React.KeyboardEvent<HTMLInputElement>  // input onKeyDown
 
-//EXAMPLE: Button Click
-const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        console.log('Button clicked!', event.currentTarget);
-    };
-//or Instead of writing a separate function like const handleClick = () => {}, the function is written directly inside the JSX:
-<button
-  onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log('Inline click on:', event.currentTarget.tagName);
-    setCount((prev) => prev + 1);
-  }}
-></button>
-
-//EXAMPLE: input value
-const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // TypeScript knows event.target.value is a string for an input element
-    setValue(event.target.value);
+//In practice:
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setValue(e.target.value); // TypeScript knows .value exists
 };
-//EXAMPLE: onChange
-<input
-  type="text"
-  value={name}
-  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
-  }}
-  placeholder="Skriv navnet ditt..."
-/>
+
+// form submit
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+};
+
+// button click
+const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  console.log(e.currentTarget); // the button element
+};
+
+// enter key
+const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  if (e.key === 'Enter') handleSearch();
+};
+
+//Inline Event Handlers
+//You can write it on the button instead but if you extract it, you need to specify
+// explicit — you type it yourself even though it's inline
+<button onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+  console.log(event.currentTarget);
+}}></button>
+
+// implicit — TypeScript infers it, no need to write the type
+<button onClick={(event) => {
+  console.log(event.currentTarget); // works exactly the same
+}}></button>
+
+//!!!since it is not on the button but extracted we need to specify
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setValue(e.target.value);
+};
+
