@@ -3,7 +3,7 @@
 const path = require('path'); // tools for working with file paths
 const util = require('util'); // utility tools
 const v8 = require('v8'); //lets you see how Node manages memory
-const readline = require('readline'); // easier way to connect to other files
+const readline = require('readline'); //  is for reading input line by line, usually from the terminal where a user types responses:
 
 //!!!You can destructure the require for only stuff you need
 const { log } = require('util');
