@@ -7,8 +7,11 @@ const express = require('express');
 const app = express();
 //var router = express.Router(); //allows to split routing in different files (only use in other files)
 //module.exports = router;
+//var helloRouter = require('./routes/hello'); //to import the router in the main file
+//app.use('/hello', helloRouter); //to use the router in the main file
 
-app.listen(3000);
+
+app.listen(3000); 
 
 //Node way of reading and writing files
 const fs = require('fs');
