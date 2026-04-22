@@ -30,3 +30,8 @@ ClassID INT,
 FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
 FOREIGN KEY (ClassID) REFERENCES Classes(ClassID)
 )
+
+// as points labels the result of the calculation (won * 3 + drawn) as points, this is useful for readability and to refer to the calculated value in other parts of the query, such as in a WHERE clause or ORDER BY clause.
+SELECT TeamName, (won * 3 + drawn) as points
+FROM Teams
+ORDER BY points DESC;
